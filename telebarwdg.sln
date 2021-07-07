@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "telegramwdg", "telegramwdg\telegramwdg.csproj", "{3D178628-4317-454A-8E82-FED9A764EFA1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test\test.csproj", "{7EF8CC9C-675A-4CE9-9668-7453922D8EA5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "telebarwdg", "telebarwdg\telebarwdg.csproj", "{3D178628-4317-454A-8E82-FED9A764EFA1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,6 +13,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7EF8CC9C-675A-4CE9-9668-7453922D8EA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EF8CC9C-675A-4CE9-9668-7453922D8EA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EF8CC9C-675A-4CE9-9668-7453922D8EA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EF8CC9C-675A-4CE9-9668-7453922D8EA5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3D178628-4317-454A-8E82-FED9A764EFA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3D178628-4317-454A-8E82-FED9A764EFA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D178628-4317-454A-8E82-FED9A764EFA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
