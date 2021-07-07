@@ -30,6 +30,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>telebarwdg.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -43,13 +49,66 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SampleClient.cs" />
+    <Compile Include="Client.cs" />
+    <Compile Include="ControlProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="LoginManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LoginManager.Designer.cs">
+      <DependentUpon>LoginManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="TelegramTaskbarWidget.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TelegramTaskbarWidget.Designer.cs">
+      <DependentUpon>TelegramTaskbarWidget.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelegramWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelegramWindow.Designer.cs">
+      <DependentUpon>TelegramWindow.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="SharpShell">
+      <Version>2.7.2</Version>
+    </PackageReference>
     <PackageReference Include="TLSharp">
       <Version>0.1.0.574</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="LoginManager.resx">
+      <DependentUpon>LoginManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelegramTaskbarWidget.resx">
+      <DependentUpon>TelegramTaskbarWidget.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelegramWindow.resx">
+      <DependentUpon>TelegramWindow.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="telebarwdg.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
 </Project>

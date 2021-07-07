@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using telebarwdg;
+using TeleBarWdg;
 
 namespace test
 {
@@ -15,8 +12,8 @@ namespace test
         [STAThread]
         static void Main()
         {
-            SampleClient example = new SampleClient();
-            example.Run();
+            //SampleClient example = new SampleClient();
+            //example.Run();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new DummyPage());
