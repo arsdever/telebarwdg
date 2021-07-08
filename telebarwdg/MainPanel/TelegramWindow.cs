@@ -13,8 +13,10 @@ namespace TeleBarWdg
     public partial class TelegramWindow : Form
     {
         Timer timer = new Timer();
+        public static TelegramWindow Instance { get => _instance; }
+        private static TelegramWindow _instance = new TelegramWindow();
 
-        public TelegramWindow()
+        private TelegramWindow()
         {
             InitializeComponent();
             timer.Tick += (_, __) => Close();
@@ -30,6 +32,16 @@ namespace TeleBarWdg
         private void TelegramWindow_OnMouseLeave(object sender, EventArgs e)
         {
             timer.Start();
+        }
+
+        public void NavigateTo(IView view)
+        {
+            UserControl oldView = Controls[0] as UserControl;
+            Controls.Remove(oldView);
+            oldView.Dispose();
+
+            Controls.Add(view as UserControl);
+            (view as UserControl).Dock = DockStyle.Fill;
         }
     }
 }
