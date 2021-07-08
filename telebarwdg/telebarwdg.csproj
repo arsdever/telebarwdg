@@ -83,6 +83,12 @@
     <Compile Include="MainPanel\TelegramWindow.Designer.cs">
       <DependentUpon>TelegramWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="TaskbarButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TaskbarButton.Designer.cs">
+      <DependentUpon>TaskbarButton.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="SharpShell">
@@ -103,6 +109,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaskbarButton.resx">
+      <DependentUpon>TaskbarButton.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TelegramTaskbarWidget.resx">
       <DependentUpon>TelegramTaskbarWidget.cs</DependentUpon>

@@ -7,14 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Threading;
 
 namespace TeleBarWdg.MainPanel
 {
     public partial class LoginPage : UserControl, IView
     {
-        Task<string> _sendingTask;
-
-        public delegate void ErrorOccuredHandler(string message);
+                public delegate void ErrorOccuredHandler(string message);
         public delegate void CodeReceivedHandler(string code);
 
         public event ErrorOccuredHandler OnErrorOccured;
@@ -29,23 +28,26 @@ namespace TeleBarWdg.MainPanel
         {
             loadingPanel.Visible = true;
             mainControl.Visible = false;
-            _sendingTask = Client.Instance.TClient.SendCodeRequestAsync(phoneNumber.Text);
+            var _sendingTask = Client.Instance.TClient.SendCodeRequestAsync(phoneNumber.Text);
             Client.Instance.PhoneNumer = phoneNumber.Text;
-
+            Dispatcher uiDispatcher = Dispatcher.CurrentDispatcher;
             _sendingTask.ContinueWith(t =>
             {
-                if (t.IsFaulted)
+                uiDispatcher.Invoke(() =>
                 {
-                    loadingPanel.Visible = false;
-                    errorMsg.Visible = true;
-                    errorMsg.Text = t.Exception.Message;
-                    mainControl.Visible = true;
-                    OnErrorOccured?.Invoke(t.Exception.Message);
-                    return;
-                }
+                    if (t.IsFaulted)
+                    {
+                        loadingPanel.Visible = false;
+                        mainControl.Visible = true;
+                        errorMsg.Visible = true;
+                        errorMsg.Text = t.Exception.Message;
+                        OnErrorOccured?.Invoke(t.Exception.Message);
+                        return;
+                    }
 
-                OnCodeRecieved?.Invoke(t.Result);
-                Client.Instance.PhoneCodeHash = t.Result;      
+                    OnCodeRecieved?.Invoke(t.Result);
+                    Client.Instance.PhoneCodeHash = t.Result;
+                });
             });
         }
     }

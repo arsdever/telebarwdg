@@ -1,6 +1,8 @@
 ﻿using SharpShell.SharpDeskBand;
 using System.ComponentModel;
+using System.Drawing;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace TeleBarWdg
 {
@@ -8,7 +10,7 @@ namespace TeleBarWdg
     [DisplayName("Telegram")]
     public class ControlProvider : SharpDeskBand
     {
-        protected override System.Windows.Forms.UserControl CreateDeskBand()
+        protected override UserControl CreateDeskBand()
         {
             return new TelegramTaskbarWidget();
         }
@@ -17,12 +19,14 @@ namespace TeleBarWdg
         {
             return new BandOptions
             {
-                HasVariableHeight = true,
+                HasVariableHeight = false,
                 IsSunken = false,
                 ShowTitle = true,
                 Title = "Telegram",
                 UseBackgroundColour = false,
-                AlwaysShowGripper = true
+                AlwaysShowGripper = false,
+                HasNoMargins = true,
+                IsFixed = true
             };
         }
     }
