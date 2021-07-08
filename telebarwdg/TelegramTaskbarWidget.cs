@@ -19,7 +19,7 @@ namespace TeleBarWdg
 
         private void button1_Click(object sender, EventArgs e)
         {
-            TelegramWindow window = new TelegramWindow();
+            TelegramWindow window = TelegramWindow.Instance;
             window.Show();
             var globalPos = button1.PointToScreen(Point.Empty);
             window.Location =

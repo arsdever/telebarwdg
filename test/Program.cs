@@ -16,7 +16,7 @@ namespace test
             //example.Run();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DummyPage());
+            Application.Run(TelegramWindow.Instance);
         }
     }
 }

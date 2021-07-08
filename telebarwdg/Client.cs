@@ -6,10 +6,12 @@ namespace TeleBarWdg
 {
     public class Client
     {
-        public static Client Instance { get => s_instance; }
+        public static Client Instance { get => s_instance != null ? s_instance : s_instance = new Client(); }
         public TelegramClient TClient { get => m_client; }
+        public string PhoneNumer { get; set; }
+        public string PhoneCodeHash { get; set; }
 
-        private static Client s_instance = new Client();
+        private static Client s_instance;
         private TelegramClient m_client;
 
         private Client()
