@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="SharpShell, Version=2.7.2.0, Culture=neutral, PublicKeyToken=f14dc899472fe6fb, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,6 +45,9 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="TLSharp.Core">
+      <HintPath>C:\Users\arsen\.nuget\packages\tlsharp\0.1.0.574\lib\net46\TLSharp.Core.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
@@ -72,7 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\telebarwdg\telebarwdg.csproj">
-      <Project>{3d178628-4317-454a-8e82-fed9a764efa1}</Project>
+      <Project>{3D178628-4317-454A-8E82-FED9A764EFA1}</Project>
       <Name>telebarwdg</Name>
     </ProjectReference>
   </ItemGroup>

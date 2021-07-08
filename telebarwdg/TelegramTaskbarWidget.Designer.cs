@@ -1,4 +1,6 @@
 ﻿
+using System.Windows.Forms;
+
 namespace TeleBarWdg
 {
     partial class TelegramTaskbarWidget
@@ -29,41 +31,36 @@ namespace TeleBarWdg
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.taskbarButton1 = new TeleBarWdg.TaskbarButton();
             this.SuspendLayout();
             // 
-            // button1
+            // taskbarButton1
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.BackgroundImage = global::TeleBarWdg.Properties.Resources.icon;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(40, 40);
-            this.button1.TabIndex = 0;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.taskbarButton1.BackColorDefault = System.Drawing.Color.Transparent;
+            this.taskbarButton1.BackColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.taskbarButton1.BackColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.taskbarButton1.BackColorPressed = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.taskbarButton1.Icon = global::TeleBarWdg.Properties.Resources.icon;
+            this.taskbarButton1.Location = new System.Drawing.Point(0, 0);
+            this.taskbarButton1.Margin = new System.Windows.Forms.Padding(0);
+            this.taskbarButton1.Name = "taskbarButton1";
+            this.taskbarButton1.Size = new System.Drawing.Size(30, 30);
+            this.taskbarButton1.TabIndex = 0;
+            this.taskbarButton1.Click += new System.EventHandler(this.taskbarButton1_Click);
             // 
             // TelegramTaskbarWidget
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.taskbarButton1);
             this.Name = "TelegramTaskbarWidget";
-            this.Size = new System.Drawing.Size(40, 40);
+            this.Size = new System.Drawing.Size(30, 30);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private TaskbarButton taskbarButton1;
     }
 }

@@ -34,35 +34,15 @@ namespace TeleBarWdg
             this.loginPage = new TeleBarWdg.MainPanel.LoginPage();
             this.SuspendLayout();
             // 
-            // loginPage1
+            // loginPage
             // 
             this.loginPage.BackColor = System.Drawing.Color.Transparent;
             this.loginPage.Location = new System.Drawing.Point(0, 0);
             this.loginPage.Margin = new System.Windows.Forms.Padding(0);
-            this.loginPage.Name = "loginPage1";
+            this.loginPage.Name = "loginPage";
             this.loginPage.Size = new System.Drawing.Size(300, 450);
             this.loginPage.TabIndex = 0;
-
-            loginPage.OnErrorOccured += msg =>
-            {
-
-            };
-
-            var dispatcher = Dispatcher.CurrentDispatcher;
-            loginPage.OnCodeRecieved += code =>
-            {
-                dispatcher.Invoke(() =>
-                {
-                    this.Controls.Remove(loginPage);
-                    this.confirmPage = new TeleBarWdg.MainPanel.CodeConfirmPage();
-                    this.confirmPage.Location = new System.Drawing.Point(0, 0);
-                    this.confirmPage.Margin = new System.Windows.Forms.Padding(0);
-                    this.confirmPage.Name = "loginPage1";
-                    this.confirmPage.Size = new System.Drawing.Size(300, 450);
-                    this.confirmPage.TabIndex = 0;
-                    this.Controls.Add(confirmPage);
-                });
-            };
+            this.loginPage.OnCodeRecieved += new TeleBarWdg.MainPanel.LoginPage.CodeReceivedHandler(this.loginPage_OnCodeRecieved);
             // 
             // TelegramWindow
             // 

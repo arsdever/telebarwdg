@@ -10,6 +10,7 @@ namespace TeleBarWdg
         public TelegramClient TClient { get => m_client; }
         public string PhoneNumer { get; set; }
         public string PhoneCodeHash { get; set; }
+        public TLUser CurrentUser { get; set; }
 
         private static Client s_instance;
         private TelegramClient m_client;

@@ -17,13 +17,13 @@ namespace TeleBarWdg
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void taskbarButton1_Click(object sender, EventArgs e)
         {
             TelegramWindow window = TelegramWindow.Instance;
             window.Show();
-            var globalPos = button1.PointToScreen(Point.Empty);
+            var globalPos = taskbarButton1.PointToScreen(Point.Empty);
             window.Location =
-                new Point(globalPos.X - window.Width / 2 + button1.Width / 2,
+                new Point(globalPos.X - window.Width / 2 + taskbarButton1.Width / 2,
                 globalPos.Y - window.Height - 10);
         }
     }
