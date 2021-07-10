@@ -33,6 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="SharpShell, Version=2.7.2.0, Culture=neutral, PublicKeyToken=f14dc899472fe6fb, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -48,6 +50,8 @@
     <Reference Include="TLSharp.Core">
       <HintPath>C:\Users\arsen\.nuget\packages\tlsharp\0.1.0.574\lib\net46\TLSharp.Core.dll</HintPath>
     </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
@@ -78,6 +82,10 @@
     <ProjectReference Include="..\telebarwdg\telebarwdg.csproj">
       <Project>{3D178628-4317-454A-8E82-FED9A764EFA1}</Project>
       <Name>telebarwdg</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\testwpf\testwpf.csproj">
+      <Project>{c7e05992-6797-41ca-83f1-fa504556f01a}</Project>
+      <Name>testwpf</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

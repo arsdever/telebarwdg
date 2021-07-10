@@ -28,30 +28,6 @@ namespace TeleBarWdg.MainPanel
 
         private void verifyCode_Click(object sender, EventArgs e)
         {
-            mainControl.Visible = false;
-            loadingPanel.Visible = true;
-            var _verifyTask = Client.Instance.TClient.MakeAuthAsync(Client.Instance.PhoneNumer, Client.Instance.PhoneCodeHash, code.Text);
-            Dispatcher uiDispatcher = Dispatcher.CurrentDispatcher;
-
-            _verifyTask.ContinueWith(t =>
-            {
-                uiDispatcher.Invoke(() =>
-                {
-                    if (t.IsFaulted)
-                    {
-                        loadingPanel.Visible = false;
-                        mainControl.Visible = true;
-                        errorMsg.Visible = true;
-                        errorMsg.Text = t.Exception.Message;
-                        OnErrorOccured?.Invoke(t.Exception.Message);
-                        return;
-                    }
-
-                    TLUser user = t.Result;
-                    OnLoginConfirmed?.Invoke(user);
-                    Client.Instance.CurrentUser = user;
-                });
-            });
         }
     }
 }

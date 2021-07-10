@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Windows.Forms.Integration;
 using TeleBarWdg;
 
 namespace test
@@ -12,11 +13,13 @@ namespace test
         [STAThread]
         static void Main()
         {
-            //SampleClient example = new SampleClient();
-            //example.Run();
+            var page = new MainWindow();
+            ElementHost.EnableModelessKeyboardInterop(page);
+            page.Show();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(TelegramWindow.Instance);
+            Application.Run();
         }
     }
 }
