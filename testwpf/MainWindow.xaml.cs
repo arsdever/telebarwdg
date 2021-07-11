@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.IO;
+using System.Windows;
 
 namespace TeleBarWdg
 {
@@ -10,6 +11,8 @@ namespace TeleBarWdg
         public MainWindow()
         {
             InitializeComponent();
+
+
             if (Client.Instance.IsLogged)
             {
                 frame.Navigate(new SessionPage());

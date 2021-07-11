@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Threading;
 
@@ -19,10 +20,7 @@ namespace TeleBarWdg
             loadingSpinner.Visibility = System.Windows.Visibility.Visible;
             errorString.Visibility = System.Windows.Visibility.Hidden;
             Dispatcher uiDispatcher = Dispatcher.CurrentDispatcher;
-            Client.Instance.TClient.MakeAuthAsync(
-                Client.Instance.PhoneNumer,
-                Client.Instance.PhoneCodeHash,
-                confirmationCode.Text).ContinueWith(t =>
+            Client.Instance.VerifyCode(confirmationCode.Text).ContinueWith(t =>
             {
                 uiDispatcher.Invoke(() =>
                 {
@@ -42,10 +40,14 @@ namespace TeleBarWdg
                         return;
                     }
 
-                    Client.Instance.CurrentUser = t.Result;
-                    Client.Instance.IsLogged = true;
+                    NavigationService.Navigate(new SessionPage());
                 });
             });
+        }
+
+        private void changePhone_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new LoginPage());
         }
     }
 }
