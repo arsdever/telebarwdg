@@ -1,25 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using telebarwdg;
+using System.Windows;
+using Application = System.Windows.Forms.Application;
+using System.Windows.Forms.Integration;
 
-namespace test
+namespace TeleBarWdg.TestApp
 {
     static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
-            SampleClient example = new SampleClient();
-            example.Run();
+            Window wnd = new MainWindow();
+            ElementHost.EnableModelessKeyboardInterop(wnd);
+            wnd.Show();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DummyPage());
+            Application.Run();
         }
     }
 }
