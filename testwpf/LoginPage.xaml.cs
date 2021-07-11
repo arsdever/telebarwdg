@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
@@ -8,26 +7,21 @@ using TLSharp.Core.Network.Exceptions;
 namespace TeleBarWdg
 {
     /// <summary>
-    /// Interaction logic for Login.xaml
+    /// Interaction logic for LoginPage.xaml
     /// </summary>
     public partial class LoginPage : Page
     {
-        CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
-
         public LoginPage()
         {
             InitializeComponent();
         }
 
-        private void requestButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void requestButton_Click(object sender, RoutedEventArgs e)
         {
-            loadingSpinner.Visibility = System.Windows.Visibility.Visible;
-            errorString.Visibility = System.Windows.Visibility.Hidden;
+            loadingSpinner.Visibility = Visibility.Visible;
+            errorString.Visibility = Visibility.Hidden;
             Dispatcher uiDispatcher = Dispatcher.CurrentDispatcher;
-            Client.Instance.PhoneNumer = phoneNumber.Text;
-            cancellationTokenSource.Cancel();
-            cancellationTokenSource = new CancellationTokenSource();
-            _ = Client.Instance.TClient.SendCodeRequestAsync(phoneNumber.Text, cancellationTokenSource.Token).ContinueWith(t =>
+            Client.Instance.Login(phoneNumber.Text).ContinueWith(t =>
               {
                   uiDispatcher.Invoke(() =>
                   {
@@ -67,8 +61,7 @@ namespace TeleBarWdg
                           return;
                       }
 
-                      _ = NavigationService.Navigate(new CodeConfirmationPage());
-                      Client.Instance.PhoneCodeHash = t.Result;
+                      NavigationService.Navigate(new CodeConfirmationPage());
                   });
               });
         }

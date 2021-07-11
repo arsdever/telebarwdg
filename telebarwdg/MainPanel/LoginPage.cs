@@ -29,7 +29,6 @@ namespace TeleBarWdg.MainPanel
             loadingPanel.Visible = true;
             mainControl.Visible = false;
             var _sendingTask = Client.Instance.TClient.SendCodeRequestAsync(phoneNumber.Text);
-            Client.Instance.PhoneNumer = phoneNumber.Text;
             Dispatcher uiDispatcher = Dispatcher.CurrentDispatcher;
             _sendingTask.ContinueWith(t =>
             {
@@ -46,7 +45,6 @@ namespace TeleBarWdg.MainPanel
                     }
 
                     OnCodeRecieved?.Invoke(t.Result);
-                    Client.Instance.PhoneCodeHash = t.Result;
                 });
             });
         }
