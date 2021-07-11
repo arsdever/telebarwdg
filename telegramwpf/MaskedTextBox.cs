@@ -10,12 +10,12 @@ namespace TeleBarWdg
 
         public MaskedTextBox()
         {
-            this.TextChanged += new TextChangedEventHandler(MaskedTextBox_TextChanged);
+            TextChanged += new TextChangedEventHandler(MaskedTextBox_TextChanged);
         }
 
         void MaskedTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            this.CaretIndex = this.Text.Length;
+            CaretIndex = Text.Length;
 
             var tbEntry = sender as MaskedTextBox;
 

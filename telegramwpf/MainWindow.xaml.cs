@@ -3,15 +3,19 @@ using System.Windows;
 
 namespace TeleBarWdg
 {
-    /// <summary>
-    /// Interaction logic for Page1.xaml
-    /// </summary>
+    public class WPFWindowProvider : IMainWindowProvider
+    {
+        public Window GetWindow()
+        {
+            return new MainWindow();
+        }
+    }
+
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
-
 
             if (Client.Instance.IsLogged)
             {
