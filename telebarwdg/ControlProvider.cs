@@ -1,7 +1,7 @@
 ﻿using SharpShell.SharpDeskBand;
 using System.ComponentModel;
-using System.Drawing;
 using System.Runtime.InteropServices;
+using System.Windows;
 using System.Windows.Forms;
 
 namespace TeleBarWdg
@@ -10,6 +10,13 @@ namespace TeleBarWdg
     [DisplayName("Telegram")]
     public class ControlProvider : SharpDeskBand
     {
+        public static IMainWindowProvider MainWindowProvider { get; set; }
+
+        public static Window GetMainWindow()
+        {
+            return MainWindowProvider.GetWindow();
+        }
+
         protected override UserControl CreateDeskBand()
         {
             return new TelegramTaskbarWidget();

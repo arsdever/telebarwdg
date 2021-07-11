@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{7EF8CC9C-675A-4CE9-9668-7453922D8EA5}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>test</RootNamespace>
+    <RootNamespace>TeleBarWdg.TestApp</RootNamespace>
     <AssemblyName>test</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -64,6 +64,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -79,13 +80,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\telebarwdg\telebarwdg.csproj">
-      <Project>{3D178628-4317-454A-8E82-FED9A764EFA1}</Project>
-      <Name>telebarwdg</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\testwpf\testwpf.csproj">
+    <ProjectReference Include="..\telegramwpf\telegramwpf.csproj">
       <Project>{c7e05992-6797-41ca-83f1-fa504556f01a}</Project>
-      <Name>testwpf</Name>
+      <Name>telegramwpf</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

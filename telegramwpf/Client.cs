@@ -2,7 +2,6 @@
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
-using TeleSharp.TL;
 using TLSharp.Core;
 
 namespace TeleBarWdg

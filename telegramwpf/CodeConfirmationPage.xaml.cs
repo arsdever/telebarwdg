@@ -31,10 +31,17 @@ namespace TeleBarWdg
                         Type extype = t.Exception.InnerException.GetType();
                         string errorMessage = "Unknown error";
                         if (extype == typeof(ArgumentNullException))
+                        {
                             errorMessage = "The confirmation code was not provided.";
+                        }
                         else if (extype == typeof(TLSharp.Core.Exceptions.InvalidPhoneCodeException))
+                        {
                             errorMessage = "Wrong confirmation code.";
-                        else;
+                        }
+                        else
+                        {
+
+                        }
                         errorString.Text = errorMessage;
 
                         return;

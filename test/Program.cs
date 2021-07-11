@@ -1,21 +1,18 @@
 ﻿using System;
-using System.Windows.Forms;
+using System.Windows;
+using Application = System.Windows.Forms.Application;
 using System.Windows.Forms.Integration;
-using TeleBarWdg;
 
-namespace test
+namespace TeleBarWdg.TestApp
 {
     static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
-            var page = new MainWindow();
-            ElementHost.EnableModelessKeyboardInterop(page);
-            page.Show();
+            Window wnd = new MainWindow();
+            ElementHost.EnableModelessKeyboardInterop(wnd);
+            wnd.Show();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Forms;
+using System.Windows.Forms.Integration;
 
 namespace TeleBarWdg
 {
@@ -19,12 +14,16 @@ namespace TeleBarWdg
 
         private void taskbarButton1_Click(object sender, EventArgs e)
         {
-            TelegramWindow window = TelegramWindow.Instance;
-            window.Show();
-            var globalPos = taskbarButton1.PointToScreen(Point.Empty);
-            window.Location =
-                new Point(globalPos.X - window.Width / 2 + taskbarButton1.Width / 2,
-                globalPos.Y - window.Height - 10);
+            ControlProvider.MainWindowProvider = new WPFWindowProvider();
+            Window mainWindow = ControlProvider.GetMainWindow();
+            ElementHost.EnableModelessKeyboardInterop(mainWindow);
+            mainWindow.Show();
+            var globalPos = taskbarButton1.PointToScreen(new System.Drawing.Point());
+            Point position =
+                new Point(globalPos.X - mainWindow.Width / 2 + taskbarButton1.Width / 2,
+                globalPos.Y - mainWindow.Height - 10);
+            mainWindow.Left = position.X;
+            mainWindow.Top = position.Y;
         }
     }
 }
